@@ -225,7 +225,7 @@
       if (!photo) return;                      // keep the placeholder text
       frame.innerHTML =
         '<img src="' + photo + '" alt="' + esc(pi.name || '') + '" ' +
-        'width="132" height="160" class="portrait-img">';
+        'width="140" height="180" class="portrait-img">';
       frame.classList.add('has-photo');
     });
   }

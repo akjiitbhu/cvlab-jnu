@@ -33,6 +33,16 @@ async function connect(uri) {
     await mongoose.connect(uri, {
       serverSelectionTimeoutMS: 10000,
       maxPoolSize: 10,
+
+      // Return BSON binary as a Node Buffer rather than a driver `Binary`.
+      //
+      // Without this, a .lean() query — which skips the schema casting that
+      // would normally do the conversion — hands the photo routes a `Binary`.
+      // Express does not recognise it as a body, so it JSON-serialises the
+      // object instead of writing the bytes, and the browser receives JSON
+      // labelled image/jpeg and reports a corrupt image. `Binary.length` is
+      // also a method, so Content-Length came out as a function's source.
+      promoteBuffers: true,
     });
   } catch (err) {
     // Mongoose's own message for an unreachable cluster is a wall of host names

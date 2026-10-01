@@ -18,22 +18,44 @@ const router = express.Router();
  * One size does not fit all: a portrait wants a square crop centred on the
  * face, while a research figure cropped square would lose half the diagram.
  *
- *   portrait  square, cropped to the most face-like region. Member cards and
- *             the lab in-charge frames.
+ *   portrait  passport proportions (35 x 45 mm, so 7:9), cropped to the most
+ *             face-like region. Member cards and the lab in-charge frames.
+ *             A square crop cuts the top of the head or the chin on a photo
+ *             taken in portrait orientation, which is how nearly every
+ *             passport-style photograph arrives.
  *   figure    fits inside a box, aspect ratio preserved, never cropped. A
  *             graphical abstract or result panel next to a publication.
  *   gallery   same as figure but larger, plus a thumbnail for the grid.
  */
 const VARIANTS = {
-  portrait: { width: 600, height: 600, fit: 'cover', position: 'attention', thumb: 0, lossless: false },
+  portrait: { width: 700, height: 900, fit: 'cover', position: 'attention', thumb: 0, lossless: false },
   figure:   { width: 1400, height: 1400, fit: 'inside', position: 'centre', thumb: 0, lossless: true },
   gallery:  { width: 1600, height: 1600, fit: 'inside', position: 'centre', thumb: 400, lossless: false },
 };
 
 const DEFAULT_VARIANT = 'portrait';
 
+/**
+ * Coerce whatever the driver handed us into a Buffer.
+ *
+ * db.js opens the connection with promoteBuffers:true, which makes this a
+ * no-op. It stays because the cost of being wrong is silent: Express will
+ * happily JSON-serialise a `Binary` object, set no useful Content-Length, and
+ * send it under an image content type, so the failure shows up as "this image
+ * contains errors" in the browser rather than as an exception in the log.
+ */
+function toBuffer(v) {
+  if (v == null) return null;
+  if (Buffer.isBuffer(v)) return v;
+  if (Buffer.isBuffer(v.buffer)) return v.buffer;          // driver Binary
+  if (typeof v.value === 'function') return Buffer.from(v.value(true));
+  if (ArrayBuffer.isView(v) || Array.isArray(v)) return Buffer.from(v);
+  return null;
+}
+
 // Kept for the existing callers and tests that refer to the portrait size.
-const MAX_DIMENSION = VARIANTS.portrait.width;
+// It is the LONGEST side, which is the height now that portraits are 7:9.
+const MAX_DIMENSION = Math.max(VARIANTS.portrait.width, VARIANTS.portrait.height);
 
 // Largest upload accepted, before re-encoding. A photo straight off a phone is
 // 3-8 MB; 12 MB leaves room without letting someone fill the database.
@@ -223,8 +245,15 @@ router.get('/:id', publicCors, async (req, res, next) => {
     }
 
     const photo = await Photo.findById(req.params.id).lean();
-    if (!photo || !photo.data) {
+    if (!photo) {
       return res.status(404).json({ error: 'No such photo.' });
+    }
+
+    const full = toBuffer(photo.data);
+    const small = toBuffer(photo.thumb);
+
+    if (!full || full.length === 0) {
+      return res.status(404).json({ error: 'That photo has no image data.' });
     }
 
     // ?size=thumb serves the small version where one exists, so a gallery grid
@@ -232,8 +261,8 @@ router.get('/:id', publicCors, async (req, res, next) => {
     // image rather than 404ing, so a caller never has to know which variants
     // carry a thumbnail.
     const wantThumb = String(req.query.size || '') === 'thumb';
-    const body = wantThumb && photo.thumb ? photo.thumb : photo.data;
-    const isThumb = body === photo.thumb;
+    const isThumb = wantThumb && !!small && small.length > 0;
+    const body = isThumb ? small : full;
 
     // The bytes for a given id never change — a replacement gets a new id — so
     // this can be cached hard and revalidated with an ETag.
@@ -319,3 +348,4 @@ module.exports = router;
 module.exports.MAX_UPLOAD_BYTES = MAX_UPLOAD_BYTES;
 module.exports.MAX_DIMENSION = MAX_DIMENSION;
 module.exports.VARIANTS = VARIANTS;
+module.exports.toBuffer = toBuffer;

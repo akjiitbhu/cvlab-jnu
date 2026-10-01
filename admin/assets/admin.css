@@ -154,7 +154,8 @@ select{ appearance:none; background-image:none; }
 /* ---------- photo upload field ---------- */
 .photofield{display:flex;gap:1rem;align-items:flex-start;margin-top:.4rem}
 .photoprev{
-  width:96px;height:112px;flex:0 0 96px;border-radius:4px;overflow:hidden;
+  /* 7:9, so the editor preview shows the same crop the site will. */
+  width:98px;height:126px;flex:0 0 98px;border-radius:4px;overflow:hidden;
   border:1px solid var(--line);background:var(--surface-2);
   display:grid;place-items:center;text-align:center;
 }

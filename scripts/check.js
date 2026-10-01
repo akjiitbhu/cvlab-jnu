@@ -235,9 +235,45 @@ async function main() {
     assert.ok(!out.includes(payload), 'the script payload survived re-encoding');
   });
 
+  await check('stored image bytes survive a lean query as a real Buffer', () => {
+    // The regression this guards against: a .lean() query returns BSON binary
+    // as a driver `Binary`, not a Buffer. Express JSON-serialises that object
+    // under the image content type, and the browser reports a corrupt image.
+    // Caught by nothing else, because it needs a live database to reproduce.
+    const { serialize, deserialize } = require('bson');
+    const { toBuffer } = require('../src/routes/photos');
+
+    const jpegMagic = Buffer.from([0xff, 0xd8, 0xff, 0xe0]);
+    const wire = serialize({ data: jpegMagic });
+
+    const raw = deserialize(wire).data;              // driver default
+    assert.ok(!Buffer.isBuffer(raw), 'fixture is wrong: bson already gave a Buffer');
+
+    const fixed = toBuffer(raw);
+    assert.ok(Buffer.isBuffer(fixed), 'toBuffer did not produce a Buffer');
+    assert.strictEqual(typeof fixed.length, 'number', 'Content-Length would be garbage');
+    assert.ok(fixed.equals(jpegMagic), 'the bytes changed on the way through');
+
+    // And the already-correct case must pass through untouched.
+    assert.ok(toBuffer(jpegMagic).equals(jpegMagic));
+    assert.strictEqual(toBuffer(null), null);
+  });
+
+  await check('the connection asks the driver for Buffers, not Binary', () => {
+    const src = require('fs').readFileSync(require('path')
+      .join(__dirname, '..', 'src', 'db.js'), 'utf8');
+    assert.ok(/promoteBuffers:\s*true/.test(src),
+      'db.js must set promoteBuffers:true or lean() photo reads serve JSON');
+  });
+
   await check('image variants have sane, distinct geometry', () => {
     const { VARIANTS } = require('../src/routes/photos');
-    assert.strictEqual(VARIANTS.portrait.fit, 'cover', 'portraits must crop to square');
+    assert.strictEqual(VARIANTS.portrait.fit, 'cover', 'portraits must crop, not letterbox');
+    assert.ok(
+      Math.abs(VARIANTS.portrait.width / VARIANTS.portrait.height - 7 / 9) < 0.01,
+      'portraits must be 7:9 (passport), got ' +
+        VARIANTS.portrait.width + 'x' + VARIANTS.portrait.height
+    );
     assert.strictEqual(VARIANTS.figure.fit, 'inside', 'a figure must not be cropped');
     assert.strictEqual(VARIANTS.gallery.fit, 'inside');
     assert.ok(VARIANTS.gallery.thumb > 0, 'gallery needs a thumbnail for the grid');
@@ -245,7 +281,7 @@ async function main() {
     assert.ok(VARIANTS.gallery.width > VARIANTS.portrait.width);
   });
 
-  await check('a figure keeps its aspect ratio; a portrait is squared', async () => {
+  await check('a figure keeps its aspect ratio; a portrait is cropped to passport', async () => {
     const sharp = require('sharp');
     const { VARIANTS } = require('../src/routes/photos');
     const wide = await sharp({
@@ -257,10 +293,14 @@ async function main() {
     assert.ok(Math.abs(fig.info.width / fig.info.height - 2.5) < 0.02,
       'figure aspect drifted: ' + fig.info.width + 'x' + fig.info.height);
 
-    const port = await sharp(wide).resize(600, 600,
+    // A very wide source must still come out at exactly the portrait geometry:
+    // "cover" crops rather than letterboxing, so the stored aspect is fixed
+    // whatever shape went in.
+    const P = VARIANTS.portrait;
+    const port = await sharp(wide).resize(P.width, P.height,
       { fit: 'cover', position: 'attention' }).jpeg().toBuffer({ resolveWithObject: true });
-    assert.strictEqual(port.info.width, 600);
-    assert.strictEqual(port.info.height, 600);
+    assert.strictEqual(port.info.width, P.width);
+    assert.strictEqual(port.info.height, P.height);
   });
 
   console.log('\ndocument storage');

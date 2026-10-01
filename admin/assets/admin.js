@@ -151,8 +151,8 @@
           '<button type="button" class="btn ghost" data-clear' + (v ? '' : ' hidden') + '>Remove</button>' +
           '<p class="fieldhint" data-status>' + esc(o.hint ||
             (variant === 'portrait'
-              ? 'JPEG, PNG, WebP or HEIC. Cropped square, resized, and stripped of camera ' +
-                'metadata including GPS location.'
+              ? 'JPEG, PNG, WebP or HEIC. Cropped to passport proportions (35 x 45 mm), ' +
+                'resized, and stripped of camera metadata including GPS location.'
               : 'JPEG, PNG, WebP or HEIC. Resized with the aspect ratio kept, and stripped ' +
                 'of camera metadata including GPS location.')) + '</p>' +
         '</div>' +

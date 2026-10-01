@@ -165,7 +165,8 @@ section.blk > h2{font-size:1.42rem;letter-spacing:-.01em;margin-bottom:1.1rem}
 /* profile header */
 .profile{display:flex;gap:1.6rem;align-items:flex-start;flex-wrap:wrap}
 .portrait{
-  width:132px;height:160px;flex:0 0 132px;border-radius:3px;
+  /* 7:9 — passport proportions, matching how the photo is stored. */
+  width:140px;height:180px;flex:0 0 140px;border-radius:3px;
   background:var(--surface-2);border:1px solid var(--line);
   display:grid;place-items:center;text-align:center;
   font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
