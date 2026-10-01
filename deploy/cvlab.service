@@ -1,0 +1,76 @@
+# systemd unit for the lab website.
+#
+#   sudo cp deploy/cvlab.service /etc/systemd/system/cvlab.service
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now cvlab
+#   sudo systemctl status cvlab
+#   sudo journalctl -u cvlab -f          # follow the logs
+#
+# systemd rather than pm2: it is already installed, it starts the site on boot,
+# it restarts on crash, and its logs go to journalctl with no extra tooling.
+
+[Unit]
+Description=Computing and Vision Lab website
+Documentation=https://github.com/akjiitbhu/cvlab-jnu
+After=network-online.target mongod.service
+Wants=network-online.target
+
+# Give up if it crash-loops, instead of hammering the machine forever.
+# These belong in [Unit], not [Service] — systemd ignores them here otherwise.
+StartLimitIntervalSec=300
+StartLimitBurst=5
+
+[Service]
+Type=simple
+User=cvlab
+Group=cvlab
+WorkingDirectory=/srv/cvlab
+
+# Secrets live here, readable only by the cvlab user (chmod 600). Keeping them
+# out of this unit file matters: unit files are world-readable.
+EnvironmentFile=/srv/cvlab/.env
+
+ExecStart=/usr/bin/node server.js
+
+Restart=always
+RestartSec=5
+
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=cvlab
+
+# ---- hardening -----------------------------------------------------------
+# The process serves the public internet, so it gets as little of the machine
+# as it can function with.
+
+NoNewPrivileges=yes
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectSystem=strict
+ProtectHome=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+ProtectClock=yes
+ProtectHostname=yes
+ProtectKernelLogs=yes
+ProtectProc=invisible
+RestrictSUIDSGID=yes
+RestrictRealtime=yes
+RestrictNamespaces=yes
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+RemoveIPC=yes
+
+# ProtectSystem=strict makes the whole filesystem read-only, and nothing here
+# needs to write. That includes photograph uploads: they are re-encoded in
+# memory and stored in MongoDB, never on disk. That is deliberate — it keeps
+# this unit free of any ReadWritePaths grant, and it means photos survive a
+# redeploy on a host with an ephemeral filesystem.
+
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+SystemCallFilter=@system-service
+SystemCallErrorNumber=EPERM
+
+[Install]
+WantedBy=multi-user.target

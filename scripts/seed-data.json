@@ -1,0 +1,1092 @@
+{
+  "members": [
+    {
+      "name": "Dr. Ankit Kumar Jaiswal",
+      "group": "pi",
+      "order": 0,
+      "topic": "Assistant Professor, Computer Science and Engineering, School of Engineering, JNU. Digital image forensics, deepfake detection and applied computer vision.",
+      "period": "Lab in-charge",
+      "email": "ankitjaiswal@jnu.ac.in",
+      "photo": "",
+      "links": [
+        {
+          "label": "Google Scholar",
+          "url": "https://scholar.google.com/citations?user=ftr72kcAAAAJ"
+        },
+        {
+          "label": "ORCID",
+          "url": "https://orcid.org/0000-0003-1736-9157"
+        }
+      ]
+    },
+    {
+      "name": "Ms. Archana Singh",
+      "group": "phd",
+      "order": 0,
+      "topic": "Deepfake generation and detection — how synthetic faces are produced, which artefacts survive compression, and where detection pipelines fail.",
+      "period": "Ph.D. scholar"
+    },
+    {
+      "name": "Ms. Soha Muskaan Sayyad",
+      "group": "phd",
+      "order": 1,
+      "topic": "Explainable AI in metal defect prediction — surface defect detection on metal components, and attributing each decision to the region that caused it.",
+      "period": "Ph.D. scholar"
+    },
+    {
+      "name": "Mr. Aman Gupta",
+      "group": "phd",
+      "order": 2,
+      "topic": "Source device identification — recovering which camera or sensor captured a given image from the traces it leaves behind.",
+      "period": "Ph.D. scholar"
+    }
+  ],
+  "research": [
+    {
+      "title": "A review of emerging image encryption techniques, challenges, and future directions: from classical cryptography to AI-driven",
+      "authors": "Aman Kumar and Ankit Kumar Jaiswal",
+      "venue": "Archives of Computational Methods in Engineering, Springer",
+      "year": 2026,
+      "date": "2026",
+      "detail": "",
+      "doi": "10.1007/s11831-026-10765-7",
+      "tags": [],
+      "kind": "journal",
+      "order": 0
+    },
+    {
+      "title": "Design and implementation of a benchmark-driven MCDM framework for eliminating rank reversal in decision-making",
+      "authors": "Shruti Singh, Lavish Kumar Singh, Annu Jaiswal and Ankit Kumar Jaiswal",
+      "venue": "International Journal of System Assurance Engineering and Management, Springer",
+      "year": 2026,
+      "date": "2026",
+      "detail": "",
+      "doi": "10.1007/s13198-026-03411-9",
+      "tags": [],
+      "kind": "journal",
+      "order": 1
+    },
+    {
+      "title": "An analysis of deepfake technology: a systematic review of creation, detection, and mitigation",
+      "authors": "Archana Singh and Ankit Kumar Jaiswal",
+      "venue": "Applied Soft Computing",
+      "year": 2026,
+      "date": "2026",
+      "detail": "vol. 201, part B",
+      "doi": "10.1016/j.asoc.2026.115644",
+      "tags": [],
+      "kind": "journal",
+      "order": 2
+    },
+    {
+      "title": "Fake region identification in an image using deep learning segmentation model",
+      "authors": "Ankit Kumar Jaiswal and Rajeev Srivastava",
+      "venue": "Multimedia Tools and Applications",
+      "year": 2023,
+      "date": "2023",
+      "detail": "",
+      "doi": "10.1007/s11042-023-15032-6",
+      "tags": [
+        "First author"
+      ],
+      "kind": "journal",
+      "order": 3
+    },
+    {
+      "title": "Detection of copy-move forgery in digital image using multi-scale, multi-stage deep learning model",
+      "authors": "Ankit Kumar Jaiswal and Rajeev Srivastava",
+      "venue": "Neural Processing Letters",
+      "year": 2021,
+      "date": "2021",
+      "detail": "",
+      "doi": "10.1007/s11063-021-10620-9",
+      "tags": [
+        "First author"
+      ],
+      "kind": "journal",
+      "order": 4
+    },
+    {
+      "title": "Forensic image analysis using inconsistent noise pattern",
+      "authors": "Ankit Kumar Jaiswal and Rajeev Srivastava",
+      "venue": "Pattern Analysis and Applications",
+      "year": 2020,
+      "date": "2020",
+      "detail": "",
+      "doi": "10.1007/s10044-020-00930-4",
+      "tags": [
+        "First author"
+      ],
+      "kind": "journal",
+      "order": 5
+    },
+    {
+      "title": "Time efficient spliced image analysis using higher-order statistics",
+      "authors": "Ankit Kumar Jaiswal and Rajeev Srivastava",
+      "venue": "Machine Vision and Applications",
+      "year": 2020,
+      "date": "2020",
+      "detail": "vol. 31, article 56",
+      "doi": "10.1007/s00138-020-01107-z",
+      "tags": [
+        "First author"
+      ],
+      "kind": "journal",
+      "order": 6
+    },
+    {
+      "title": "A technique for image splicing detection using hybrid feature set",
+      "authors": "Ankit Kumar Jaiswal and Rajeev Srivastava",
+      "venue": "Multimedia Tools and Applications",
+      "year": 2020,
+      "date": "2020",
+      "detail": "vol. 79, pp. 11837–11860",
+      "doi": "10.1007/s11042-019-08480-6",
+      "tags": [
+        "First author"
+      ],
+      "kind": "journal",
+      "order": 7
+    },
+    {
+      "title": "Source camera identification using hybrid feature set and machine learning classifiers",
+      "authors": "Ankit Kumar Jaiswal and Rajeev Srivastava",
+      "venue": "In Role of Data-Intensive Distributed Computing Systems in Designing Data Solutions, EAI/Springer Innovations in Communication and Computing",
+      "year": null,
+      "date": "",
+      "detail": "",
+      "doi": "",
+      "tags": [
+        "Scopus"
+      ],
+      "kind": "chapter",
+      "order": 0
+    },
+    {
+      "title": "Exploiting AI vulnerabilities: the deepfake threat to cybersecurity, privacy, and trust",
+      "authors": "Archana Singh and Ankit Kumar Jaiswal",
+      "venue": "In The Dark Side of AI: Privacy Invasions and Data Vulnerabilities",
+      "year": null,
+      "date": "",
+      "detail": "",
+      "doi": "",
+      "tags": [
+        "Under publication"
+      ],
+      "kind": "chapter",
+      "order": 1
+    },
+    {
+      "title": "A transformer-based framework for glaucoma screening with composite preprocessing techniques",
+      "authors": "S. Kumar, A. Singh, A. Kunwar, N. K. Tagore, M. Sharma and A. K. Jaiswal",
+      "venue": "Advances in Distributed Computing and Machine Learning, ICADCML 2026, Lecture Notes in Networks and Systems, Springer",
+      "year": 2026,
+      "date": "2026",
+      "detail": "",
+      "doi": "",
+      "tags": [
+        "Scopus"
+      ],
+      "kind": "conference",
+      "order": 0
+    },
+    {
+      "title": "Cost effective obstacle detection kit for blind people",
+      "authors": "A. Mishra, D. S. Sangwan, S. Priyadarshini, A. K. Jaiswal and L. K. Singh",
+      "venue": "3rd International Conference on Disruptive Technologies (ICDT), IEEE, pp. 17–20",
+      "year": 2025,
+      "date": "2025",
+      "detail": "",
+      "doi": "",
+      "tags": [
+        "Scopus"
+      ],
+      "kind": "conference",
+      "order": 1
+    },
+    {
+      "title": "Integrating attention-driven color cues and temporal dynamics for advanced person re-identification",
+      "authors": "M. Sharma, N. K. Tagore, A. K. Jaiswal and M. P. Singh",
+      "venue": "International Conference on Information Systems and Management Science, Springer Nature Switzerland",
+      "year": 2025,
+      "date": "2025",
+      "detail": "",
+      "doi": "",
+      "tags": [
+        "Scopus"
+      ],
+      "kind": "conference",
+      "order": 2
+    },
+    {
+      "title": "Feature selection and reduction for analysis of histopathology images",
+      "authors": "Shiksha Singh, Ankit Kumar Jaiswal and Rajesh Kumar",
+      "venue": "International Conference on Soft Computing for Problem-Solving, Springer Nature Singapore",
+      "year": 2023,
+      "date": "2023",
+      "detail": "",
+      "doi": "",
+      "tags": [
+        "Scopus"
+      ],
+      "kind": "conference",
+      "order": 3
+    },
+    {
+      "title": "FSD: a novel forged document dataset and baseline",
+      "authors": "Ankit Kumar Jaiswal, Shiksha Singh and Santosh Kumar Tripathy",
+      "venue": "14th International Conference on Computing, Communication and Networking Technologies (ICCCNT), IIT Delhi",
+      "year": 2023,
+      "date": "2023",
+      "detail": "",
+      "doi": "",
+      "tags": [
+        "First author",
+        "Scopus"
+      ],
+      "kind": "conference",
+      "order": 4
+    },
+    {
+      "title": "Multi-layer feature fusion-based deep multi-layer depth separable convolution neural network for Alzheimer's disease detection",
+      "authors": "Santosh Kumar Tripathy, Divya Singh and Ankit Kumar Jaiswal",
+      "venue": "IEEE International Conference on IoT, Communication and Automation Technology (ICICAT)",
+      "year": 2023,
+      "date": "2023",
+      "detail": "",
+      "doi": "",
+      "tags": [],
+      "kind": "conference",
+      "order": 5
+    },
+    {
+      "title": "Some methods for digital image forgery detection and localization",
+      "authors": "Ankit Kumar Jaiswal, Shiksha Singh, Santosh Kumar Tripathy, Nirbhay Kumar Tagore and Arya Shahi",
+      "venue": "3rd International Conference on Data Analytics & Management (ICDAM-2022), Poland",
+      "year": 2022,
+      "date": "2022",
+      "detail": "",
+      "doi": "",
+      "tags": [
+        "First author",
+        "Scopus"
+      ],
+      "kind": "conference",
+      "order": 6
+    },
+    {
+      "title": "Occlusion reconstruction for person re-identification",
+      "authors": "Nirbhay Kumar Tagore, Ramakant Kumar, Naina Yadav and Ankit Kumar Jaiswal",
+      "venue": "3rd International Conference on Data Analytics & Management (ICDAM-2022), Poland",
+      "year": 2022,
+      "date": "2022",
+      "detail": "",
+      "doi": "",
+      "tags": [
+        "Scopus"
+      ],
+      "kind": "conference",
+      "order": 7
+    },
+    {
+      "title": "Apple disease classification built on deep learning",
+      "authors": "Harshit Singh, Kumud Saxena and Ankit Kumar Jaiswal",
+      "venue": "3rd International Conference on Intelligent Engineering and Management (ICIEM), IEEE, pp. 978–982",
+      "year": 2022,
+      "date": "2022",
+      "detail": "",
+      "doi": "",
+      "tags": [
+        "Scopus"
+      ],
+      "kind": "conference",
+      "order": 8
+    },
+    {
+      "title": "Detection of copy-move forgery using hybrid approach of DCT and BRISK",
+      "authors": "Ankit Kumar Jaiswal, Dhanin Gupta and Rajeev Srivastava",
+      "venue": "IEEE 7th International Conference on Signal Processing and Integrated Networks (SPIN), pp. 471–476",
+      "year": 2020,
+      "date": "2020",
+      "detail": "",
+      "doi": "",
+      "tags": [
+        "First author",
+        "Scopus"
+      ],
+      "kind": "conference",
+      "order": 9
+    },
+    {
+      "title": "Copy-move image forgery detection using DCT and ORB feature set",
+      "authors": "Vikas Mehta, Ankit Kumar Jaiswal and Rajeev Srivastava",
+      "venue": "International Conference on Futuristic Trends in Networks and Computing Technologies, Springer",
+      "year": 2019,
+      "date": "2019",
+      "detail": "",
+      "doi": "",
+      "tags": [
+        "Scopus"
+      ],
+      "kind": "conference",
+      "order": 10
+    },
+    {
+      "title": "Image splicing detection using deep residual network",
+      "authors": "Ankit Kumar Jaiswal and Rajeev Srivastava",
+      "venue": "2nd International Conference on Advanced Computing and Software Engineering (ICACSE)",
+      "year": 2019,
+      "date": "2019",
+      "detail": "",
+      "doi": "",
+      "tags": [
+        "First author"
+      ],
+      "kind": "conference",
+      "order": 11
+    },
+    {
+      "title": "Copy-move forgery detection using shift-invariant SWT and block division mean features",
+      "authors": "Ankit Kumar Jaiswal and Rajeev Srivastava",
+      "venue": "In Recent Trends in Communication, Computing, and Electronics, Springer",
+      "year": 2019,
+      "date": "2019",
+      "detail": "",
+      "doi": "",
+      "tags": [
+        "First author",
+        "Scopus"
+      ],
+      "kind": "conference",
+      "order": 12
+    },
+    {
+      "title": "Comparative study of commit protocols in mobile environment: M2PC, UCM and TCOT",
+      "authors": "Ankit Kumar Jaiswal and Udai Shanker",
+      "venue": "IEEE 2nd International Conference on Contemporary Computing and Informatics (IC3I), pp. 667–670",
+      "year": 2016,
+      "date": "2016",
+      "detail": "",
+      "doi": "",
+      "tags": [
+        "First author",
+        "Scopus"
+      ],
+      "kind": "conference",
+      "order": 13
+    },
+    {
+      "kind": "patent",
+      "order": 0,
+      "title": "A System to Reduce Errors for Digital Image Forgery Detection and Method thereof.",
+      "authors": "Ankit Kumar Jaiswal and Rajeev Srivastava",
+      "venue": "Indian Patent, granted",
+      "detail": "Application No. 202211038984",
+      "tags": [],
+      "year": 2022,
+      "date": ""
+    },
+    {
+      "kind": "talk",
+      "order": 0,
+      "title": "Workshop on Machine Learning, Linear Algebra and Natural Language Transformation (MANTRA-2026)",
+      "venue": "IIIT Allahabad",
+      "date": "20–22 Jul 2026",
+      "year": 2026,
+      "authors": "",
+      "detail": "",
+      "doi": "",
+      "tags": []
+    },
+    {
+      "kind": "talk",
+      "order": 1,
+      "title": "From traditional image forgery to deepfakes: understanding and detection techniques",
+      "venue": "Expert talk, Galgotias University, Greater Noida",
+      "date": "15 May 2026",
+      "year": 2026,
+      "authors": "",
+      "detail": "",
+      "doi": "",
+      "tags": []
+    },
+    {
+      "kind": "talk",
+      "order": 2,
+      "title": "Soft computing techniques in artificial intelligence",
+      "venue": "Teacher's Enrichment Workshop (TEW 2026), Jaypee Institute of Information Technology, Noida",
+      "date": "15–28 Apr 2026",
+      "year": 2026,
+      "authors": "",
+      "detail": "",
+      "doi": "",
+      "tags": []
+    },
+    {
+      "kind": "talk",
+      "order": 3,
+      "title": "Machine learning for IoT engineers: from devices to data",
+      "venue": "FDP, NSUT Delhi with E&ICT Academy, IIITDM Jabalpur",
+      "date": "5–9 Jan 2026",
+      "year": 2026,
+      "authors": "",
+      "detail": "",
+      "doi": "",
+      "tags": []
+    },
+    {
+      "kind": "talk",
+      "order": 4,
+      "title": "Emerging technologies in computing world",
+      "venue": "FDP, KCC Institute of Technology and Management, Greater Noida",
+      "date": "26 Dec 2025",
+      "year": 2025,
+      "authors": "",
+      "detail": "",
+      "doi": "",
+      "tags": []
+    },
+    {
+      "kind": "talk",
+      "order": 5,
+      "title": "Innovations in forensic science: the role of ML, DL, and biometrics in cybersecurity",
+      "venue": "FDP, NIT Delhi with E&ICT Academy, IIITDM Jabalpur",
+      "date": "11–24 Sep 2025",
+      "year": 2025,
+      "authors": "",
+      "detail": "",
+      "doi": "",
+      "tags": []
+    },
+    {
+      "kind": "talk",
+      "order": 6,
+      "title": "Medical data analytics using ML",
+      "venue": "FDP, E&ICT Academy, NIT Patna",
+      "date": "14–25 Jul 2025",
+      "year": 2025,
+      "authors": "",
+      "detail": "",
+      "doi": "",
+      "tags": []
+    },
+    {
+      "kind": "talk",
+      "order": 7,
+      "title": "Smart systems and intelligent media: AI across software, image, and text domains",
+      "venue": "FDP, School of Engineering, JNU with E&ICT Academy, IIT Roorkee",
+      "date": "14–18 Jul 2025",
+      "year": 2025,
+      "authors": "",
+      "detail": "",
+      "doi": "",
+      "tags": []
+    },
+    {
+      "kind": "talk",
+      "order": 8,
+      "title": "AI Securities and Ethics Practices (AISEP)",
+      "venue": "FDP, NSUT New Delhi with E&ICT Academy, IIT Roorkee",
+      "date": "21–25 Apr 2025",
+      "year": 2025,
+      "authors": "",
+      "detail": "",
+      "doi": "",
+      "tags": []
+    },
+    {
+      "kind": "talk",
+      "order": 9,
+      "title": "Reliable artificial intelligence applications for autonomous system",
+      "venue": "FDP, ABV-IIITM Gwalior with E&ICT Academy, IIITDM Jabalpur",
+      "date": "12–18 Apr 2025",
+      "year": 2025,
+      "authors": "",
+      "detail": "",
+      "doi": "",
+      "tags": []
+    },
+    {
+      "kind": "talk",
+      "order": 10,
+      "title": "Digital forensics case study",
+      "venue": "STTP on Cyber Threats Intelligence and Forensics (CTIF-2025), MANIT Bhopal",
+      "date": "2–7 Mar 2025",
+      "year": 2025,
+      "authors": "",
+      "detail": "",
+      "doi": "",
+      "tags": []
+    },
+    {
+      "kind": "talk",
+      "order": 11,
+      "title": "Digital image forgery and scope of deep learning in digital image forgery detection",
+      "venue": "FDP, Department of CSE/IT, JIIT Noida",
+      "date": "28 Jun – 3 Jul 2023",
+      "year": 2023,
+      "authors": "",
+      "detail": "",
+      "doi": "",
+      "tags": []
+    },
+    {
+      "kind": "talk",
+      "order": 12,
+      "title": "Digital image forgery detection techniques",
+      "venue": "One Week Workshop on Advance Computing Technologies, Department of CSE, MNNIT Allahabad",
+      "date": "7–11 Feb 2022",
+      "year": 2022,
+      "authors": "",
+      "detail": "",
+      "doi": "",
+      "tags": []
+    },
+    {
+      "kind": "organized",
+      "order": 0,
+      "title": "Faculty Development Programme — Smart Systems and Intelligent Media: AI Across Software, Image, and Text Domains",
+      "venue": "School of Engineering, JNU, New Delhi, 14–18 July 2025.",
+      "date": "",
+      "year": 2025,
+      "authors": "",
+      "detail": "",
+      "doi": "",
+      "tags": []
+    },
+    {
+      "kind": "organized",
+      "order": 1,
+      "title": "Light Photography Workshop",
+      "venue": "with Virendra Adhikari, professional photography mentor, School of Engineering, JNU, 27 February 2026.",
+      "date": "",
+      "year": 2026,
+      "authors": "",
+      "detail": "",
+      "doi": "",
+      "tags": []
+    },
+    {
+      "kind": "chaired",
+      "order": 0,
+      "title": "IC2PCT 2026",
+      "venue": "6th International Conference on Computing, Power and Communication Technologies, Galgotias University, 15–17 May 2026.",
+      "date": "",
+      "year": 2026,
+      "authors": "",
+      "detail": "",
+      "doi": "",
+      "tags": []
+    },
+    {
+      "kind": "chaired",
+      "order": 1,
+      "title": "ICCCA 2025",
+      "venue": "7th International Conference on Computing, Communication and Automation, Galgotias University, 28–30 November 2025.",
+      "date": "",
+      "year": 2025,
+      "authors": "",
+      "detail": "",
+      "doi": "",
+      "tags": []
+    },
+    {
+      "kind": "chaired",
+      "order": 2,
+      "title": "2nd Global AI Summit 2025",
+      "venue": "International Conference on Artificial Intelligence and Emerging Technologies 2.0, Bennett University, 19–21 November 2025.",
+      "date": "",
+      "year": 2025,
+      "authors": "",
+      "detail": "",
+      "doi": "",
+      "tags": []
+    },
+    {
+      "kind": "chaired",
+      "order": 3,
+      "title": "NetCrypt 2025",
+      "venue": "3rd International Conference on Networks and Cryptology, JNU, New Delhi, 29–31 May 2025.",
+      "date": "",
+      "year": 2025,
+      "authors": "",
+      "detail": "",
+      "doi": "",
+      "tags": []
+    },
+    {
+      "kind": "chaired",
+      "order": 4,
+      "title": "3rd International Conference on Communication, Security, and Artificial Intelligence",
+      "venue": "Galgotias University, 4–6 April 2025.",
+      "date": "",
+      "year": 2025,
+      "authors": "",
+      "detail": "",
+      "doi": "",
+      "tags": []
+    },
+    {
+      "kind": "chaired",
+      "order": 5,
+      "title": "ISMS 2025",
+      "venue": "7th International Conference on Information Systems and Management Science, NIT Kurukshetra, 22–23 February 2025.",
+      "date": "",
+      "year": 2025,
+      "authors": "",
+      "detail": "",
+      "doi": "",
+      "tags": []
+    },
+    {
+      "kind": "chaired",
+      "order": 6,
+      "title": "IC2PCT 2024",
+      "venue": "5th IEEE International Conference on Computing, Power and Communication Technologies, Galgotias University, 9–10 February 2024.",
+      "date": "",
+      "year": 2024,
+      "authors": "",
+      "detail": "",
+      "doi": "",
+      "tags": []
+    },
+    {
+      "label": "Forensics",
+      "title": "Image forgery detection & localization",
+      "body": "Copy-move and splicing detection using higher-order statistics, inconsistent noise patterns, hybrid feature sets, and multi-scale deep segmentation models that mark the forged region, not just the verdict.",
+      "kind": "theme",
+      "order": 0,
+      "authors": "",
+      "venue": "",
+      "date": "",
+      "detail": "",
+      "doi": "",
+      "tags": [],
+      "year": null
+    },
+    {
+      "label": "Synthetic media",
+      "title": "Deepfake analysis and mitigation",
+      "body": "How synthetic faces are created, what artefacts survive compression, and where detection pipelines break — together with the privacy and trust consequences of getting it wrong.",
+      "kind": "theme",
+      "order": 1,
+      "authors": "",
+      "venue": "",
+      "date": "",
+      "detail": "",
+      "doi": "",
+      "tags": [],
+      "year": null
+    },
+    {
+      "label": "Industrial vision",
+      "title": "Metal defect detection & explainable AI",
+      "body": "Surface defect detection on metal components, and the explainability question that follows it — an inspection model that rejects a part has to be able to show which region drove the decision before anyone will act on it.",
+      "kind": "theme",
+      "order": 2,
+      "authors": "",
+      "venue": "",
+      "date": "",
+      "detail": "",
+      "doi": "",
+      "tags": [],
+      "year": null
+    },
+    {
+      "label": "Provenance",
+      "title": "Source device identification",
+      "body": "Which camera or sensor produced a given image, from hybrid feature sets and machine-learned classifiers over the traces a device leaves in every frame it captures.",
+      "kind": "theme",
+      "order": 3,
+      "authors": "",
+      "venue": "",
+      "date": "",
+      "detail": "",
+      "doi": "",
+      "tags": [],
+      "year": null
+    },
+    {
+      "label": "Security",
+      "title": "Multimedia security & authentication",
+      "body": "Document forgery datasets, image authentication, and image encryption — from classical cryptographic constructions to learned schemes.",
+      "kind": "theme",
+      "order": 4,
+      "authors": "",
+      "venue": "",
+      "date": "",
+      "detail": "",
+      "doi": "",
+      "tags": [],
+      "year": null
+    },
+    {
+      "label": "Medical imaging",
+      "title": "Biomedical image analysis",
+      "body": "Transformer-based glaucoma screening, histopathology feature selection, and depth-separable convolutional models for Alzheimer's disease detection.",
+      "kind": "theme",
+      "order": 5,
+      "authors": "",
+      "venue": "",
+      "date": "",
+      "detail": "",
+      "doi": "",
+      "tags": [],
+      "year": null
+    },
+    {
+      "label": "Video & surveillance",
+      "title": "Person re-identification",
+      "body": "Attention-driven colour cues and temporal dynamics across non-overlapping cameras, including reconstruction of occluded views.",
+      "kind": "theme",
+      "order": 6,
+      "authors": "",
+      "venue": "",
+      "date": "",
+      "detail": "",
+      "doi": "",
+      "tags": [],
+      "year": null
+    },
+    {
+      "label": "Foundations",
+      "title": "Pattern recognition & deep learning",
+      "body": "The representation-learning and decision-making machinery underneath all of the above, and the teaching that introduces it to undergraduates.",
+      "kind": "theme",
+      "order": 7,
+      "authors": "",
+      "venue": "",
+      "date": "",
+      "detail": "",
+      "doi": "",
+      "tags": [],
+      "year": null
+    }
+  ],
+  "courses": [
+    {
+      "slug": "cp",
+      "title": "Computer Programming",
+      "designation": "Engg Foundation-I",
+      "semester": "Monsoon",
+      "level": "B.Tech. 1st year",
+      "ltp": "3-0-2",
+      "category": "Core",
+      "description": "A first course that treats the machine as visible rather than hidden. Students learn C not as a syntax exercise but as a way to see how memory, addresses, and control flow actually behave — the foundation everything in later semesters is built on.",
+      "units": [
+        {
+          "label": "Unit I",
+          "title": "Fundamentals",
+          "topics": "Problem solving, algorithms and flowcharts; the compilation model; identifiers, data types, storage classes; operators, precedence and type conversion; formatted input and output."
+        },
+        {
+          "label": "Unit II",
+          "title": "Control flow",
+          "topics": "Conditional statements and the dangling-else problem; switch; while, do-while and for loops; break, continue, goto; loop invariants and tracing."
+        },
+        {
+          "label": "Unit III",
+          "title": "Functions and recursion",
+          "topics": "Declaration, definition and prototypes; call by value; scope and lifetime; the call stack; recursion — factorial, Fibonacci, Towers of Hanoi; the preprocessor and macros."
+        },
+        {
+          "label": "Unit IV",
+          "title": "Arrays and strings",
+          "topics": "One- and two-dimensional arrays; passing arrays to functions; matrix operations; character arrays, the string.h library, and writing your own string routines."
+        },
+        {
+          "label": "Unit V",
+          "title": "Pointers and memory",
+          "topics": "Address arithmetic; pointers to arrays and functions; call by reference; dynamic allocation with malloc, calloc, realloc, free; common leaks and dangling-pointer bugs."
+        },
+        {
+          "label": "Unit VI",
+          "title": "Structures and files",
+          "topics": "Structures, nested structures, arrays of structures; unions, enums and bit-fields; typedef; text and binary file I/O; command-line arguments."
+        }
+      ],
+      "resources": [
+        {
+          "kind": "Slides",
+          "item": "Lecture slides, Units I–VI (PDF)",
+          "url": ""
+        },
+        {
+          "kind": "Notes",
+          "item": "Pointer and memory-layout diagrams; dry-run worksheets",
+          "url": ""
+        },
+        {
+          "kind": "Lab",
+          "item": "Lab sheets 1–12 with expected input/output for each program",
+          "url": ""
+        },
+        {
+          "kind": "Code",
+          "item": "Worked solutions released after each lab deadline",
+          "url": ""
+        },
+        {
+          "kind": "Practice",
+          "item": "Debugging exercises — 30 programs with deliberate bugs to find",
+          "url": ""
+        }
+      ],
+      "reading": "Kernighan and Ritchie, The C Programming Language, 2nd edition, Prentice Hall.\nBalagurusamy, Programming in ANSI C, 8th edition, McGraw-Hill.\nKanetkar, Let Us C, BPB Publications — for additional practice.\nKing, C Programming: A Modern Approach, 2nd edition, W. W. Norton.",
+      "current": true,
+      "order": 0,
+      "visible": true
+    },
+    {
+      "slug": "ds",
+      "title": "Data Structure",
+      "designation": "Engg Foundation-II",
+      "semester": "Winter",
+      "level": "B.Tech. 1st year",
+      "ltp": "3-0-2",
+      "category": "Core",
+      "description": "Choosing the representation that makes an operation cheap. The course pairs every structure with the cost of its operations, and every lab with a measurement — so that asymptotic claims are something students verify rather than memorize.",
+      "units": [
+        {
+          "label": "Unit I",
+          "title": "Analysis and arrays",
+          "topics": "Abstract data types; asymptotic notation and cost models; time–space trade-offs; one- and multi-dimensional arrays, address calculation, sparse matrices."
+        },
+        {
+          "label": "Unit II",
+          "title": "Linked lists",
+          "topics": "Singly, doubly and circular lists; insertion, deletion and reversal; polynomial and long-integer arithmetic; comparison with array-backed lists."
+        },
+        {
+          "label": "Unit III",
+          "title": "Stacks and queues",
+          "topics": "Array and linked implementations; infix–postfix conversion and evaluation; recursion and the call stack; circular queues, deques, priority queues."
+        },
+        {
+          "label": "Unit IV",
+          "title": "Trees",
+          "topics": "Binary trees and traversals; binary search trees; AVL rotations and balance; B-trees and B+-trees; threaded trees; expression trees."
+        },
+        {
+          "label": "Unit V",
+          "title": "Heaps and hashing",
+          "topics": "Binary heaps, heapify, heapsort; hash functions; separate chaining and open addressing; load factor and rehashing."
+        },
+        {
+          "label": "Unit VI",
+          "title": "Graphs",
+          "topics": "Representations; BFS and DFS; topological sort; minimum spanning trees (Prim, Kruskal); shortest paths (Dijkstra, Bellman–Ford, Floyd–Warshall)."
+        },
+        {
+          "label": "Unit VII",
+          "title": "Sorting and searching",
+          "topics": "Insertion, selection, bubble, merge, quick, radix and counting sorts; lower bounds for comparison sorting; linear and binary search; external sorting."
+        }
+      ],
+      "resources": [
+        {
+          "kind": "Slides",
+          "item": "Lecture slides, Units I–VII (PDF)",
+          "url": ""
+        },
+        {
+          "kind": "Notes",
+          "item": "Complexity cheat-sheet and rotation/rebalancing worksheets",
+          "url": ""
+        },
+        {
+          "kind": "Lab",
+          "item": "Lab sheets 1–12 in C: lists, stacks, BST, AVL, heap, graph traversals",
+          "url": ""
+        },
+        {
+          "kind": "Code",
+          "item": "Reference implementations and a timing harness for empirical complexity plots",
+          "url": ""
+        },
+        {
+          "kind": "Practice",
+          "item": "Problem set with graded difficulty and previous-year papers",
+          "url": ""
+        }
+      ],
+      "reading": "Cormen, Leiserson, Rivest and Stein, Introduction to Algorithms, 4th edition, MIT Press.\nHorowitz, Sahni and Anderson-Freed, Fundamentals of Data Structures in C, 2nd edition.\nTenenbaum, Langsam and Augenstein, Data Structures Using C, Pearson.\nWeiss, Data Structures and Algorithm Analysis in C, 2nd edition, Pearson.",
+      "current": true,
+      "order": 1,
+      "visible": true
+    },
+    {
+      "slug": "dbms",
+      "title": "Database Management Systems",
+      "designation": "",
+      "semester": "Monsoon",
+      "level": "B.Tech. 2nd year",
+      "ltp": "3-0-2",
+      "category": "Core",
+      "description": "What it takes to keep shared data correct while many people change it at once. The course moves from modelling and the relational algebra behind SQL to the concurrency control and storage machinery that makes the guarantees hold.",
+      "units": [
+        {
+          "label": "Unit I",
+          "title": "Database concepts and modelling",
+          "topics": "File systems versus DBMS; three-schema architecture and data independence; ER and extended ER modelling; mapping ER designs to relations."
+        },
+        {
+          "label": "Unit II",
+          "title": "Relational model and algebra",
+          "topics": "Relations, keys and integrity constraints; selection, projection, join, division; tuple and domain relational calculus; expressive equivalence."
+        },
+        {
+          "label": "Unit III",
+          "title": "SQL",
+          "topics": "DDL and DML; joins, nested and correlated subqueries; aggregation and grouping; views; triggers and stored procedures; embedded and dynamic SQL."
+        },
+        {
+          "label": "Unit IV",
+          "title": "Design theory",
+          "topics": "Functional dependencies, closure and minimal cover; 1NF through BCNF; 4NF and multivalued dependencies; lossless-join and dependency-preserving decomposition."
+        },
+        {
+          "label": "Unit V",
+          "title": "Transactions and concurrency",
+          "topics": "ACID properties; schedules and serializability; two-phase locking, timestamp ordering and optimistic control; deadlock handling; logging and recovery."
+        },
+        {
+          "label": "Unit VI",
+          "title": "Storage, indexing and beyond",
+          "topics": "File organization; B+-tree and hash indexes; query processing and cost-based optimization; introduction to distributed and NoSQL systems."
+        }
+      ],
+      "resources": [
+        {
+          "kind": "Slides",
+          "item": "Lecture slides, Units I–VI (PDF)",
+          "url": ""
+        },
+        {
+          "kind": "Notes",
+          "item": "Normalization worked examples and serializability test worksheets",
+          "url": ""
+        },
+        {
+          "kind": "Lab",
+          "item": "Lab sheets 1–10 on MySQL: schema design, queries, joins, triggers, transactions",
+          "url": ""
+        },
+        {
+          "kind": "Data",
+          "item": "Sample schema and seed data for the semester project",
+          "url": ""
+        },
+        {
+          "kind": "Project",
+          "item": "Mini-project specification and evaluation rubric",
+          "url": ""
+        }
+      ],
+      "reading": "Silberschatz, Korth and Sudarshan, Database System Concepts, 7th edition, McGraw-Hill.\nElmasri and Navathe, Fundamentals of Database Systems, 7th edition, Pearson.\nRamakrishnan and Gehrke, Database Management Systems, 3rd edition, McGraw-Hill.",
+      "current": true,
+      "order": 2,
+      "visible": true
+    },
+    {
+      "slug": "dip",
+      "title": "Digital Image Processing",
+      "designation": "",
+      "semester": "",
+      "level": "B.Tech. / M.Tech.",
+      "ltp": "",
+      "category": "Elective",
+      "description": "From how a sensor turns light into an array of numbers to how a convolutional network decides what those numbers mean. The course keeps a forensic thread running through it: every operation we study — resampling, JPEG quantization, filtering — leaves a trace, and those traces are what makes tampering detectable.",
+      "units": [
+        {
+          "label": "Unit I",
+          "title": "Digital image fundamentals",
+          "topics": "Image formation and the human visual system; sampling and quantization; spatial and intensity resolution; pixel relationships and distance measures; image file formats."
+        },
+        {
+          "label": "Unit II",
+          "title": "Intensity transformations and histogram processing",
+          "topics": "Log, power-law and piecewise-linear transforms; histogram equalization and specification; local enhancement; arithmetic and logical operations on images."
+        },
+        {
+          "label": "Unit III",
+          "title": "Spatial filtering",
+          "topics": "Correlation and convolution; smoothing and order-statistic filters; sharpening with the Laplacian and unsharp masking; gradient operators — Sobel, Prewitt, Roberts."
+        },
+        {
+          "label": "Unit IV",
+          "title": "Frequency-domain processing",
+          "topics": "2-D DFT and its properties; the FFT; ideal, Butterworth and Gaussian low- and high-pass filters; homomorphic filtering; the DCT and why JPEG uses 8×8 blocks."
+        },
+        {
+          "label": "Unit V",
+          "title": "Restoration and noise models",
+          "topics": "Gaussian, impulse, Rayleigh and periodic noise; mean, order-statistic and adaptive filters; inverse and Wiener filtering; estimating the degradation function."
+        },
+        {
+          "label": "Unit VI",
+          "title": "Compression",
+          "topics": "Redundancy and fidelity criteria; Huffman and arithmetic coding; run-length and LZW; transform coding and the JPEG pipeline; a note on JPEG artefacts as forensic evidence."
+        },
+        {
+          "label": "Unit VII",
+          "title": "Morphology and segmentation",
+          "topics": "Erosion, dilation, opening, closing, hit-or-miss; boundary extraction and skeletons; thresholding including Otsu's method; region growing, splitting and merging; watershed segmentation."
+        },
+        {
+          "label": "Unit VIII",
+          "title": "Colour, representation and learning",
+          "topics": "RGB, HSI and CMYK models; pseudo-colour processing; boundary and regional descriptors; introduction to CNNs for image analysis and to image forensics as an application area."
+        }
+      ],
+      "resources": [
+        {
+          "kind": "Slides",
+          "item": "Lecture slides, Units I–VIII (PDF)",
+          "url": ""
+        },
+        {
+          "kind": "Notes",
+          "item": "Handwritten derivations — DFT, Wiener filter, Otsu threshold",
+          "url": ""
+        },
+        {
+          "kind": "Lab",
+          "item": "Lab sheets 1–10: histogram equalization, spatial filters, DFT filtering, JPEG round-trip, segmentation",
+          "url": ""
+        },
+        {
+          "kind": "Code",
+          "item": "Python notebooks (NumPy, OpenCV, scikit-image) accompanying each lab",
+          "url": ""
+        },
+        {
+          "kind": "Datasets",
+          "item": "CASIA v2, CoMoFoD and the lab's FSD forged-document dataset for the forensics assignment",
+          "url": ""
+        },
+        {
+          "kind": "Assessment",
+          "item": "Previous-year question papers and marking scheme",
+          "url": ""
+        }
+      ],
+      "reading": "Gonzalez and Woods, Digital Image Processing, 4th edition, Pearson — primary text.\nJain, Fundamentals of Digital Image Processing, Prentice Hall.\nSzeliski, Computer Vision: Algorithms and Applications, 2nd edition, Springer — for the later units.\nSencar and Memon (eds.), Digital Image Forensics, Springer — supplementary, for the forensics thread.",
+      "current": true,
+      "order": 3,
+      "visible": true
+    }
+  ],
+  "metrics": {
+    "_id": "current",
+    "citations": 343,
+    "hIndex": 10,
+    "i10Index": null,
+    "phdScholars": 3,
+    "mtechSupervised": 10,
+    "patents": 1,
+    "asOf": "August 2026",
+    "source": "Google Scholar",
+    "profileUrl": "https://scholar.google.com/citations?user=ftr72kcAAAAJ"
+  }
+}

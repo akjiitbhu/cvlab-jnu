@@ -1,0 +1,23 @@
+# Optional: lets Render create the service from this file instead of the
+# dashboard ("Blueprints" → point it at this repository).
+# MONGODB_URI and JWT_SECRET are marked sync:false so they are NEVER stored in
+# this file — Render prompts you for them once and keeps them encrypted.
+services:
+  - type: web
+    name: cvlab-jnu
+    runtime: node
+    plan: free
+    buildCommand: npm ci --omit=dev
+    startCommand: node server.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      # Your GitHub Pages origin, so the published pages may read the API.
+      # Host only, no /repository-name path, no trailing slash.
+      - key: SITE_ORIGIN
+        sync: false

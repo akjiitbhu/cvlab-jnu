@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Lab Site Editor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/admin.css">
+</head>
+<body>
+
+<!-- ===================== sign in ===================== -->
+<div id="gate" class="gate">
+  <form id="login-form" class="card" autocomplete="on">
+    <p class="eyebrow">Computing and Vision Lab</p>
+    <h1>Sign in to edit</h1>
+    <p class="hint">Changes you save here appear on the public site immediately.</p>
+
+    <label for="u">Username</label>
+    <input id="u" name="username" type="text" autocomplete="username" required autocapitalize="none" spellcheck="false">
+
+    <label for="p">Password</label>
+    <input id="p" name="password" type="password" autocomplete="current-password" required>
+
+    <div id="login-error" class="msg err" hidden></div>
+
+    <button type="submit" class="btn primary" id="login-btn">Sign in</button>
+    <p class="hint tiny">Return to the <a href="/">public site</a>.</p>
+  </form>
+</div>
+
+<!-- ===================== editor ===================== -->
+<div id="app" hidden>
+  <header class="masthead">
+    <div class="wrap masthead-in">
+      <a class="mark" href="/">
+        <span class="glyph" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        <span class="wordmark">Site editor<span>Computing and Vision Lab</span></span>
+      </a>
+      <nav class="tabs" role="tablist" aria-label="Content types">
+        <button role="tab" data-view="members" aria-selected="true">Members</button>
+        <button role="tab" data-view="research" aria-selected="false">Research</button>
+        <button role="tab" data-view="courses" aria-selected="false">Teaching</button>
+        <button role="tab" data-view="gallery" aria-selected="false">Gallery</button>
+        <button role="tab" data-view="metrics" aria-selected="false">Metrics</button>
+        <button role="tab" data-view="account" aria-selected="false">Account</button>
+      </nav>
+    </div>
+  </header>
+
+  <div id="toast" class="toast" hidden></div>
+
+  <main class="wrap">
+    <div class="viewbar">
+      <div>
+        <h2 id="view-title">Members</h2>
+        <p class="hint" id="view-hint"></p>
+      </div>
+      <div class="viewbar-actions">
+        <a class="btn ghost" href="/" target="_blank" rel="noopener">View site</a>
+        <button class="btn" id="new-btn">Add</button>
+      </div>
+    </div>
+
+    <div id="list"></div>
+  </main>
+
+  <!-- edit dialog -->
+  <div id="modal" class="modal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-head">
+        <h3 id="modal-title">Edit</h3>
+        <button class="btn ghost icon" id="modal-close" aria-label="Close">&times;</button>
+      </div>
+      <form id="edit-form" class="modal-body"></form>
+      <div class="modal-foot">
+        <button class="btn danger ghost" id="delete-btn" hidden>Delete</button>
+        <span class="spacer"></span>
+        <button class="btn ghost" id="cancel-btn">Cancel</button>
+        <button class="btn primary" id="save-btn">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/admin.js"></script>
+</body>
+</html>

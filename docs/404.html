@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found — Computing and Vision Lab</title>
+<!-- Styles are inlined deliberately: GitHub Pages serves this file for a
+     missing path at any depth, so a relative stylesheet link would break and an
+     absolute one breaks when the site is published under /repository-name/. -->
+<style>
+  :root{
+    --paper:#f4f6f5; --ink:#12201e; --muted:#5b6b68; --accent:#0d5f55;
+    --display:"Spectral","Iowan Old Style",Georgia,serif;
+    --body:"IBM Plex Sans","Segoe UI",Helvetica,Arial,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#0b1211; --ink:#e7edea; --muted:#8ea09c; --accent:#5cc4ad;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#0b1211; --ink:#e7edea; --muted:#8ea09c; --accent:#5cc4ad;
+  }
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:var(--body); min-height:100vh;
+    display:grid; place-items:center; text-align:center; padding:2rem;
+  }
+  .eyebrow{
+    font-family:var(--mono); font-size:.7rem; letter-spacing:.13em;
+    text-transform:uppercase; color:var(--accent); margin:0 0 .9rem;
+  }
+  h1{
+    font-family:var(--display); font-weight:600; font-size:clamp(1.6rem,4vw,2.3rem);
+    line-height:1.2; margin:0 0 .8rem;
+  }
+  p{color:var(--muted); max-width:46ch; margin:0 auto 1.5rem; line-height:1.6}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+  <div>
+    <p class="eyebrow">Computing and Vision Lab</p>
+    <h1>That page does not exist</h1>
+    <p>The link may be out of date. Everything on this site lives on a single
+       page, reachable from the navigation at the top.</p>
+    <p><a href="/">Go to the lab site</a></p>
+  </div>
+</body>
+</html>

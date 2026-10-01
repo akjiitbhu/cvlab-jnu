@@ -1,0 +1,127 @@
+# Deploy to Azure App Service (Linux, Node).
+#
+# SETUP
+#   1. Web App -> Overview -> "Download publish profile"
+#   2. Repo -> Settings -> Secrets and variables -> Actions -> New repository secret
+#        Name:  AZURE_WEBAPP_PUBLISH_PROFILE
+#        Value: the whole contents of that .PublishSettings file
+#   3. Set AZURE_WEBAPP_NAME below to your app's name.
+#
+# Deployment Center can generate its own workflow instead; use one or the other,
+# not both, or two runs will race on every push.
+
+name: Deploy to Azure App Service
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - '**.md'
+      - 'deploy/**'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+
+env:
+  # The RESOURCE name — what you typed in the portal. This is NOT the hostname.
+  #
+  # Azure now gives new apps a "secure unique default hostname" that looks like
+  #     cvlab-jnu-a6gqaeashthkh.centralindia-01.azurewebsites.net
+  # rather than the old cvlab-jnu.azurewebsites.net. The random hash prevents
+  # subdomain takeover: with predictable hostnames, someone who noticed a DNS
+  # record still pointing at a deleted app could recreate it under that name and
+  # inherit the traffic.
+  #
+  # So never build a URL out of this value. The health check below reads the
+  # real hostname from the deploy step's output instead.
+  AZURE_WEBAPP_NAME: cvlab-jnu
+  NODE_VERSION: '22.x'
+
+concurrency:
+  group: azure-deploy
+  cancel-in-progress: false      # never cancel a half-finished deploy
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: ${{ steps.deploy.outputs.webapp-url }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      # Dev dependencies are needed for the checks; the deployed tree is not.
+      - name: Install
+        run: npm ci
+
+      - name: Run the offline checks
+        run: npm run check
+
+      # A failing check must stop the deploy — that is the whole point of
+      # running it here rather than after.
+      - name: Prune to production dependencies
+        run: npm prune --omit=dev
+
+      # node_modules is deliberately NOT shipped. App Service is told to build
+      # on the instance (SCM_DO_BUILD_DURING_DEPLOYMENT=true), so that sharp's
+      # compiled binary is produced for the machine that will run it rather
+      # than for this runner.
+      - name: Package
+        run: |
+          rm -rf node_modules
+          zip -qr deploy.zip . \
+            -x '.git/*' '.github/*' 'node_modules/*' '*.md' 'deploy/*' \
+               'scripts/smoke-test.js' 'render.yaml' '.env*'
+          ls -lh deploy.zip
+
+      - id: deploy
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: deploy.zip
+
+      - name: Wait for the app to answer
+        env:
+          # The deploy step reports the app's real URL. Using it rather than
+          # assembling one from the app name is what makes this work with the
+          # hashed default hostname.
+          WEBAPP_URL: ${{ steps.deploy.outputs.webapp-url }}
+        run: |
+          if [ -z "$WEBAPP_URL" ]; then
+            echo "::warning::The deploy step reported no URL, so the health check is skipped."
+            echo "The deployment itself succeeded. Check the site by hand."
+            exit 0
+          fi
+
+          BASE="${WEBAPP_URL%/}"
+          echo "app URL: $BASE"
+          echo "polling $BASE/api/health"
+
+          for i in $(seq 1 30); do
+            code=$(curl -s -o /tmp/health -w '%{http_code}' --max-time 20 "$BASE/api/health" || echo 000)
+            if [ "$code" = "200" ] && grep -q '"ok":true' /tmp/health; then
+              echo "healthy after ${i} attempt(s)"
+              cat /tmp/health
+              echo ""
+              echo "### Deployed" >> $GITHUB_STEP_SUMMARY
+              echo "- Site: $BASE" >> $GITHUB_STEP_SUMMARY
+              echo "- Editor: $BASE/admin" >> $GITHUB_STEP_SUMMARY
+              exit 0
+            fi
+            echo "  attempt $i: HTTP $code"
+            sleep 10
+          done
+
+          echo "::error::The app did not report healthy within five minutes."
+          echo "Check the Log stream:"
+          echo "  az webapp log tail --name ${{ env.AZURE_WEBAPP_NAME }} --resource-group cvlab-rg"
+          echo "Most likely a missing Application setting, or Atlas refusing the connection."
+          echo "If the database is the problem the log prints a specific checklist."
+          cat /tmp/health || true
+          exit 1

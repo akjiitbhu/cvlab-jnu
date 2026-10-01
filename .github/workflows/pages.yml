@@ -1,0 +1,98 @@
+# Publishes docs/ to GitHub Pages — ALTERNATIVE DEPLOYMENT, OFF BY DEFAULT.
+#
+# This site is deployed to Azure App Service (see DEPLOY-AZURE.md), which serves
+# the public pages and the API from one origin. GitHub Pages is not part of that
+# setup, so this workflow only runs when you start it by hand.
+#
+# It is left here because the split deployment is a legitimate option: static
+# pages on Pages, API elsewhere. To switch to it, set the CVLAB_API_BASE
+# repository variable as described below, run this workflow from the Actions
+# tab, and set SITE_ORIGIN on the API host to your github.io origin.
+#
+# Do NOT re-enable the push trigger while running on Azure: the published pages
+# would call whatever CVLAB_API_BASE says, and you would have two sites to keep
+# in step.
+#
+# The API URL is injected here from a repository variable rather than being
+# committed, so the URL can change without a code edit and the repository
+# carries no deployment detail.
+#
+# Set it once: repository → Settings → Secrets and variables → Actions →
+# Variables → New repository variable
+#     Name:  CVLAB_API_BASE
+#     Value: https://your-api-host.onrender.com      (no trailing slash)
+#
+# And enable Pages: Settings → Pages → Source → "GitHub Actions".
+
+name: Deploy public site to Pages
+
+on:
+  # Manual only. Adding a push trigger here would fail every build while
+  # CVLAB_API_BASE is unset, which is the correct state for an Azure deployment.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never run two deploys at once; cancel an in-flight one if a newer push lands.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Point the site at the API
+        env:
+          API_BASE: ${{ vars.CVLAB_API_BASE }}
+        run: |
+          if [ -z "$API_BASE" ]; then
+            echo "::error::Repository variable CVLAB_API_BASE is not set."
+            echo "Set it under Settings → Secrets and variables → Actions → Variables."
+            echo "Without it the published pages would call themselves and show no content."
+            exit 1
+          fi
+          # Trim any trailing slash, then substitute the placeholder in config.js.
+          API_BASE="${API_BASE%/}"
+          python3 - "$API_BASE" <<'PY'
+          import re, sys
+          base = sys.argv[1]
+          path = 'docs/assets/config.js'
+          src = open(path).read()
+          out, n = re.subn(r"API_BASE:\s*'[^']*'", "API_BASE: '%s'" % base, src, count=1)
+          if n != 1:
+              sys.exit('could not find the API_BASE line in %s' % path)
+          open(path, 'w').write(out)
+          print('config.js now points at ' + base)
+          PY
+          grep -n "API_BASE:" docs/assets/config.js
+
+      - name: Check the API is reachable
+        env:
+          API_BASE: ${{ vars.CVLAB_API_BASE }}
+        run: |
+          # A warning, not a failure: a sleeping free host is normal and the
+          # pages handle it with a retry.
+          code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 75 "${API_BASE%/}/api/health" || echo 000)
+          if [ "$code" = "200" ]; then
+            echo "API health check OK."
+          else
+            echo "::warning::API health check returned $code. If the host sleeps this is expected; if the site shows no content, check SITE_ORIGIN on the API."
+          fi
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+      - id: deployment
+        uses: actions/deploy-pages@v4

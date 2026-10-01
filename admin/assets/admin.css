@@ -1,0 +1,181 @@
+/* Editor chrome. Reuses the site's tokens from site.css so the two never drift
+   apart; only the controls the public pages don't have are defined here. */
+
+body { background: var(--paper); }
+
+/* ------------------------------------------------------------- sign in */
+
+.gate{ min-height:100vh; display:grid; place-items:center; padding:1.5rem; }
+.gate .card{
+  width:100%; max-width:380px; background:var(--surface);
+  border:1px solid var(--line); border-radius:6px; padding:1.9rem;
+  box-shadow:var(--shadow); display:flex; flex-direction:column;
+}
+.gate h1{ font-size:1.5rem; margin:.2rem 0 .5rem; }
+
+label{
+  font-family:var(--mono); font-size:.68rem; letter-spacing:.09em; text-transform:uppercase;
+  color:var(--muted); margin:1.05rem 0 .35rem; display:block;
+}
+input[type=text], input[type=password], input[type=number], input[type=url],
+input[type=email], select, textarea{
+  width:100%; font-family:var(--body); font-size:.93rem; color:var(--ink);
+  background:var(--paper); border:1px solid var(--line); border-radius:4px;
+  padding:.55rem .7rem;
+}
+input:focus, select:focus, textarea:focus{
+  outline:2px solid var(--accent); outline-offset:1px; border-color:var(--accent);
+}
+textarea{ min-height:5.5rem; line-height:1.55; resize:vertical; }
+select{ appearance:none; background-image:none; }
+
+.hint{ font-size:.85rem; color:var(--muted); line-height:1.5; }
+.hint.tiny{ font-size:.78rem; margin-top:1rem; }
+.fieldhint{ font-size:.78rem; color:var(--muted); margin-top:.3rem; line-height:1.45; }
+
+/* -------------------------------------------------------------- buttons */
+
+.btn{
+  font-family:var(--body); font-size:.86rem; font-weight:500;
+  padding:.5rem .95rem; border-radius:4px; cursor:pointer;
+  border:1px solid var(--line); background:var(--surface); color:var(--ink);
+  text-decoration:none; display:inline-flex; align-items:center; gap:.4rem;
+}
+.btn:hover{ border-color:var(--accent); }
+.btn.primary{ background:var(--accent); border-color:var(--accent); color:#fff; }
+.btn.primary:hover{ filter:brightness(1.08); }
+.btn.primary[disabled]{ opacity:.6; cursor:progress; }
+.btn.ghost{ background:transparent; }
+.btn.danger{ color:#b3261e; border-color:#e7c3c0; }
+:root[data-theme="dark"] .btn.danger,
+:root:not([data-theme="light"]) .btn.danger{ color:#f2b8b5; border-color:#5c3330; }
+.btn.danger:hover{ border-color:currentColor; }
+.btn.icon{ font-size:1.2rem; line-height:1; padding:.3rem .55rem; }
+.gate .btn.primary{ margin-top:1.4rem; justify-content:center; }
+
+/* ------------------------------------------------------------ messages */
+
+.msg{ font-size:.86rem; padding:.6rem .8rem; border-radius:4px; margin-top:1rem; line-height:1.5; }
+.msg.err{ background:var(--highlight-soft); color:var(--ink); border-left:2px solid #b3261e; }
+.msg.ok{ background:var(--accent-soft); color:var(--accent); }
+
+.toast{
+  position:fixed; left:50%; transform:translateX(-50%); top:1rem; z-index:60;
+  background:var(--ink); color:var(--paper); font-size:.86rem;
+  padding:.6rem 1rem; border-radius:4px; box-shadow:var(--shadow); max-width:90vw;
+}
+.toast.bad{ background:#b3261e; color:#fff; }
+
+/* ----------------------------------------------------------- view bar */
+
+.viewbar{
+  display:flex; align-items:flex-end; justify-content:space-between; gap:1rem;
+  flex-wrap:wrap; padding:2rem 0 1.1rem; border-bottom:1px solid var(--line);
+}
+.viewbar h2{ font-size:1.5rem; }
+.viewbar .hint{ margin-top:.3rem; max-width:60ch; }
+.viewbar-actions{ display:flex; gap:.5rem; }
+
+/* -------------------------------------------------------------- lists */
+
+.group-head{
+  font-family:var(--mono); font-size:.7rem; font-weight:500; letter-spacing:.11em;
+  text-transform:uppercase; color:var(--accent); margin:1.9rem 0 .5rem;
+}
+.rowlist{ display:flex; flex-direction:column; }
+.rowitem{
+  display:grid; grid-template-columns:auto minmax(0,1fr) auto; gap:.9rem;
+  align-items:center; padding:.8rem .2rem; border-bottom:1px solid var(--line-soft);
+}
+.rowitem:first-child{ border-top:1px solid var(--line-soft); }
+.rowitem .ord{
+  font-family:var(--mono); font-size:.7rem; color:var(--muted);
+  font-variant-numeric:tabular-nums; width:2ch; text-align:right;
+}
+.rowitem .main{ min-width:0; }
+.rowitem .rtitle{ font-size:.94rem; font-weight:500; line-height:1.35; }
+.rowitem .rsub{
+  font-size:.82rem; color:var(--muted); margin-top:.18rem; line-height:1.4;
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+}
+.rowitem .acts{ display:flex; gap:.35rem; align-items:center; }
+.rowitem.hiddenrow{ opacity:.55; }
+.rowitem.hiddenrow .rtitle::after{
+  content:"hidden"; font-family:var(--mono); font-size:.6rem; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--muted); border:1px dashed var(--line);
+  padding:.1rem .35rem; border-radius:2px; margin-left:.5rem;
+}
+.emptyish{ font-size:.9rem; color:var(--muted); padding:1.6rem 0; }
+
+/* -------------------------------------------------------------- modal */
+
+.modal{
+  position:fixed; inset:0; z-index:70; background:rgba(10,18,17,.55);
+  display:grid; place-items:center; padding:1rem;
+}
+.modal-card{
+  background:var(--surface); border:1px solid var(--line); border-radius:6px;
+  width:100%; max-width:640px; max-height:92vh; display:flex; flex-direction:column;
+  box-shadow:0 24px 60px -20px rgba(0,0,0,.5);
+}
+.modal-head{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:1.05rem 1.3rem; border-bottom:1px solid var(--line);
+}
+.modal-head h3{ font-size:1.12rem; }
+.modal-body{ padding:.4rem 1.3rem 1.3rem; overflow-y:auto; }
+.modal-body label:first-of-type{ margin-top:.7rem; }
+.modal-foot{
+  display:flex; align-items:center; gap:.5rem;
+  padding:.9rem 1.3rem; border-top:1px solid var(--line);
+}
+.modal-foot .spacer{ flex:1; }
+
+.two{ display:grid; grid-template-columns:1fr 1fr; gap:0 1rem; }
+@media (max-width:560px){ .two{ grid-template-columns:1fr; } }
+
+.checkrow{ display:flex; align-items:center; gap:.55rem; margin-top:1.1rem; }
+.checkrow input{ width:auto; margin:0; }
+.checkrow label{ margin:0; text-transform:none; letter-spacing:0; font-family:var(--body);
+  font-size:.9rem; color:var(--ink); }
+
+/* repeating sub-rows (course units, resources, member links) */
+.repeat{ border:1px solid var(--line); border-radius:4px; padding:.5rem .7rem .8rem; margin-top:.4rem; }
+.repeat-item{ padding:.6rem 0; border-bottom:1px solid var(--line-soft); }
+.repeat-item:last-of-type{ border-bottom:0; }
+.repeat-item .rhead{
+  display:flex; align-items:center; justify-content:space-between; gap:.5rem;
+  font-family:var(--mono); font-size:.66rem; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--muted);
+}
+.repeat .btn{ font-size:.8rem; padding:.32rem .6rem; }
+.repeat-add{ margin-top:.6rem; }
+
+/* ---------- photo upload field ---------- */
+.photofield{display:flex;gap:1rem;align-items:flex-start;margin-top:.4rem}
+.photoprev{
+  width:96px;height:112px;flex:0 0 96px;border-radius:4px;overflow:hidden;
+  border:1px solid var(--line);background:var(--surface-2);
+  display:grid;place-items:center;text-align:center;
+}
+.photoprev img{width:100%;height:100%;object-fit:cover;display:block}
+.photoprev span{
+  font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--muted);
+}
+.photoacts{flex:1;min-width:0;display:flex;flex-wrap:wrap;gap:.45rem;align-items:flex-start}
+.photoacts .btn{font-size:.82rem;padding:.4rem .75rem}
+.photoacts .fieldhint{flex-basis:100%;margin-top:.2rem}
+.fieldhint.bad{color:#b3261e}
+:root[data-theme="dark"] .fieldhint.bad,
+:root:not([data-theme="light"]) .fieldhint.bad{color:#f2b8b5}
+
+/* ---------- document upload field ---------- */
+.filefield{border:1px solid var(--line);border-radius:4px;padding:.65rem .8rem;margin-top:.3rem}
+.filestate{font-size:.88rem;margin-bottom:.5rem;word-break:break-all}
+.filestate .nofile{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted)}
+.fsize{font-family:var(--mono);font-size:.68rem;color:var(--muted);white-space:nowrap}
+.fileacts{display:flex;gap:.4rem;flex-wrap:wrap}
+.fileacts .btn{font-size:.8rem;padding:.32rem .62rem}
+.filefield .fieldhint{margin-top:.5rem}
