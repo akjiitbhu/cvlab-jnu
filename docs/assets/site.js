@@ -162,34 +162,48 @@
     { key: 'patents', label: 'Granted patent', pad: true }
   ];
 
-  function renderMetrics(m) {
-    var box = el('metrics');
-    if (!box) return;
+  /** document.querySelectorAll as a real array iteration. */
+  function each(selector, fn) {
+    Array.prototype.forEach.call(document.querySelectorAll(selector), fn);
+  }
 
-    if (!m) { box.innerHTML = ''; return; }
+  /**
+   * Fill every metrics strip on the page.
+   *
+   * There is more than one — the Home hero and the Lab In-charge profile both
+   * carry the same figures — so this selects on an attribute rather than an id.
+   * getElementById returns the first match only, which is why the second strip
+   * silently stayed on its em-dash placeholders.
+   */
+  function renderMetrics(m) {
+    var boxes = document.querySelectorAll('[data-metrics]');
+    if (!boxes.length) return;
 
     var html = '';
-    METRIC_TILES.forEach(function (t) {
-      var v = m[t.key];
-      if (v === null || v === undefined || v === '') return;   // tile omitted
-      var shown = t.pad && Number(v) < 10 ? '0' + Number(v) : String(v);
-      html += '<div><b>' + esc(shown) + '</b><small>' + esc(t.label) + '</small></div>';
-    });
-
-    box.innerHTML = html;
-
-    var line = el('srcline');
-    var link = el('src-link');
-    var asOf = document.querySelector('[data-m="asOf"]');
-    var hasAny = html !== '';
-
-    if (line) line.hidden = !hasAny || !(m.source || m.asOf);
-    if (link && m.source) {
-      link.textContent = m.source;
-      var u = safeUrl(m.profileUrl);
-      if (u) link.setAttribute('href', u);
+    if (m) {
+      METRIC_TILES.forEach(function (t) {
+        var v = m[t.key];
+        if (v === null || v === undefined || v === '') return;  // tile omitted
+        var shown = t.pad && Number(v) < 10 ? '0' + Number(v) : String(v);
+        html += '<div><b>' + esc(shown) + '</b><small>' + esc(t.label) + '</small></div>';
+      });
     }
-    if (asOf) asOf.textContent = m.asOf || '—';
+
+    Array.prototype.forEach.call(boxes, function (box) { box.innerHTML = html; });
+
+    // The attribution line follows the figures: shown only where there is both
+    // something to attribute and a source to name.
+    var show = !!m && html !== '' && !!(m.source || m.asOf);
+    var url = m ? safeUrl(m.profileUrl) : '';
+
+    each('[data-srcline]', function (line) { line.hidden = !show; });
+    each('[data-src-link]', function (link) {
+      if (m && m.source) link.textContent = m.source;
+      if (url) link.setAttribute('href', url);
+    });
+    each('[data-m="asOf"]', function (node) {
+      node.textContent = (m && m.asOf) || '—';
+    });
   }
 
   // ------------------------------------------------- research themes
@@ -654,10 +668,9 @@
   }
 
   function clearDynamicChrome() {
-    var box = el('metrics');
-    if (box) box.innerHTML = '';
-    var line = el('srcline');
-    if (line) line.hidden = true;
+    // Every strip, not just the first — same reason as renderMetrics.
+    each('[data-metrics]', function (box) { box.innerHTML = ''; });
+    each('[data-srcline]', function (line) { line.hidden = true; });
     var themes = el('themes');
     if (themes) themes.style.display = 'none';
   }

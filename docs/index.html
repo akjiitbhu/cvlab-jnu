@@ -44,7 +44,7 @@
         manipulated regions in photographs, exposing synthetic and deepfake media, identifying the device a
         photograph came from, and carrying the same representation learning into industrial inspection, where a
         model's explanation matters as much as its verdict.</p>
-      <div class="glance" id="metrics" aria-live="polite">
+      <div class="glance" id="metrics" data-metrics aria-live="polite">
         <div><b data-m="citations">&mdash;</b><small>Citations</small></div>
         <div><b data-m="hIndex">&mdash;</b><small>h-index</small></div>
         <div><b data-m="i10Index">&mdash;</b><small>i10-index</small></div>
@@ -52,8 +52,8 @@
         <div><b>10</b><small>M.Tech. supervised</small></div>
         <div><b>01</b><small>Granted patent</small></div>
       </div>
-      <p class="srcline" id="srcline" hidden>
-        Source: <a id="src-link" href="https://scholar.google.com/citations?user=ftr72kcAAAAJ">Google Scholar</a>
+      <p class="srcline" id="srcline" data-srcline hidden>
+        Source: <a id="src-link" data-src-link href="https://scholar.google.com/citations?user=ftr72kcAAAAJ">Google Scholar</a>
         &middot; as of <span data-m="asOf">&mdash;</span>
       </p>
     </div>
@@ -84,7 +84,6 @@
           <a href="mailto:ankitjaiswal@jnu.ac.in">ankitjaiswal@jnu.ac.in</a>
           <a href="https://scholar.google.com/citations?user=ftr72kcAAAAJ">Google Scholar</a>
           <a href="https://orcid.org/0000-0003-1736-9157">ORCID 0000-0003-1736-9157</a>
-          <a href="https://akjiitbhu.github.io/webpage">Personal page</a>
           <a href="https://www.linkedin.com/in/ankitjaiswal15">LinkedIn</a>
         </div>
       </div>
@@ -121,11 +120,28 @@
                 <a href="mailto:ankitjaiswal@jnu.ac.in">ankitjaiswal@jnu.ac.in</a>
                 <a href="https://scholar.google.com/citations?user=ftr72kcAAAAJ">Google Scholar</a>
                 <a href="https://orcid.org/0000-0003-1736-9157">ORCID</a>
-                <a href="https://akjiitbhu.github.io/webpage">Personal page</a>
                 <a href="https://www.linkedin.com/in/ankitjaiswal15">LinkedIn</a>
               </div>
             </div>
           </div>
+
+          <!-- The same figures as the Home hero, filled by the same renderer.
+               Both strips are selected on [data-metrics], so neither is the
+               "real" one. The em-dashes are what shows before the fetch
+               returns, and while it is retrying a cold start. -->
+          <div class="glance" data-metrics aria-live="polite">
+            <div><b>&mdash;</b><small>Citations</small></div>
+            <div><b>&mdash;</b><small>h-index</small></div>
+            <div><b>&mdash;</b><small>i10-index</small></div>
+            <div><b>&mdash;</b><small>Ph.D. scholars</small></div>
+            <div><b>&mdash;</b><small>M.Tech. supervised</small></div>
+            <div><b>&mdash;</b><small>Granted patent</small></div>
+          </div>
+          <p class="srcline" data-srcline hidden>
+            Source: <a data-src-link href="https://scholar.google.com/citations?user=ftr72kcAAAAJ">Google Scholar</a>
+            &middot; as of <span data-m="asOf">&mdash;</span>
+          </p>
+
           <div class="prose" style="margin-top:1.6rem">
             <p>Dr. Jaiswal joined the School of Engineering at JNU in March 2023. His doctoral work at
               IIT (BHU) Varanasi addressed the detection and localization of tampered regions in digital
